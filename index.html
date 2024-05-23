@@ -5,11 +5,100 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
         <title>Pokémon Search API App</title>
-        <link rel="stylesheet" href="style.css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+        <style>
+            @font-face { 
+                font-family: 'Pokemon Solid';
+                src: url('Pokemon Solid.ttf') format('truetype');
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            * {
+                font-family: 'Poppins';
+            }
+
+            h1, h2, h3, h4, h5 {
+                font-family: 'Pokemon Solid';
+            }
+        </style>
     </head>
 
-    <body>
-        <div class="container">
+    <body class="bg-gradient-to-r from-violet-600 to-purple-600">
+        <div class="w-full h-screen flex items-center justify-center">
+            <div class="w-full max-w-lg p-5">
+                <div class="w-full bg-white rounded-xl p-5">
+                    <h1 class="text-3xl text-center text-blue-950 mb-2">
+                        Pokémon Search
+                    </h1>
+                    <span class="block text-center text-slate-400">
+                        By Jobeth Eres
+                    </span>
+                    <div id="error-message" class="hidden">Pokemon not found</div>
+                    <input type="text" name="" id="search-input" placeholder="Search Pokemon" class="border w-full mt-5 p-3 text-center rounded-lg">
+                    <button id="search-button" class="w-full p-3 bg-orange-500 rounded-lg text-white text-lg font-bold mt-3">
+                        Search
+                    </button>
+                </div>
+                <div class="w-full bg-white rounded-xl p-5 mt-5">
+                    <div class="pokemon-info">
+                        <img class="mx-auto w-40 h-40" src="https://pbs.twimg.com/profile_images/677508993686700035/5hQ59Dm4_400x400.png" alt="" id="sprite" />
+                        <div class="flex space-x-2">
+                            <strong>Name:</strong>
+                            <span class="capitalize" id="pokemon-name"></span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <strong>ID:</strong>
+                            <span class="capitalize" id="pokemon-id"></span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <strong>Weight:</strong>
+                            <span class="capitalize" id="weight"></span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <strong>Height:</strong>
+                            <span class="capitalize" id="height"></span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <strong>Types:</strong>
+                            <span class="capitalize" id="types"></span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <strong>HP:</strong>
+                            <span class="capitalize" id="hp"></span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <strong>Attack:</strong>
+                            <span class="capitalize" id="attack"></span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <strong>Defense:</strong>
+                            <span class="capitalize" id="defense"></span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <strong>Special Attack:</strong>
+                            <span class="capitalize" id="special-attack"></span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <strong>Special Defense:</strong>
+                            <span class="capitalize" id="special-defense"></span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <strong>Speed:</strong>
+                            <span class="capitalize" id="speed"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="hidden max-w-lg border mx-auto">
+            <h1 class="text-3xl font-bold underline">
+                Hello world test!
+            </h1>
+            
             <h1>Pokémon Search API App</h1>
             <p class="creator">By Jobeth Eres</p>
             <p class="creator">
@@ -24,40 +113,40 @@
             <div id="error-message" class="hidden">Pokemon not found</div>
             <div class="pokemon-info">
                 <img src="" alt="" id="sprite" />
-                <div class="info-item">
-                    <strong>Name:</strong> <span id="pokemon-name"></span>
+                <div class="flex space-x-2">
+                    <strong>Name:</strong> <span class="capitalize" id="pokemon-name"></span>
                 </div>
-                <div class="info-item">
-                    <strong>ID:</strong> <span id="pokemon-id"></span>
+                <div class="flex space-x-2">
+                    <strong>ID:</strong> <span class="capitalize" id="pokemon-id"></span>
                 </div>
-                <div class="info-item">
-                    <strong>Weight:</strong> <span id="weight"></span>
+                <div class="flex space-x-2">
+                    <strong>Weight:</strong> <span class="capitalize" id="weight"></span>
                 </div>
-                <div class="info-item">
-                    <strong>Height:</strong> <span id="height"></span>
+                <div class="flex space-x-2">
+                    <strong>Height:</strong> <span class="capitalize" id="height"></span>
                 </div>
-                <div class="info-item">
-                    <strong>Types:</strong> <span id="types"></span>
+                <div class="flex space-x-2">
+                    <strong>Types:</strong> <span class="capitalize" id="types"></span>
                 </div>
-                <div class="info-item">
-                    <strong>HP:</strong> <span id="hp"></span>
+                <div class="flex space-x-2">
+                    <strong>HP:</strong> <span class="capitalize" id="hp"></span>
                 </div>
-                <div class="info-item">
-                    <strong>Attack:</strong> <span id="attack"></span>
+                <div class="flex space-x-2">
+                    <strong>Attack:</strong> <span class="capitalize" id="attack"></span>
                 </div>
-                <div class="info-item">
-                    <strong>Defense:</strong> <span id="defense"></span>
+                <div class="flex space-x-2">
+                    <strong>Defense:</strong> <span class="capitalize" id="defense"></span>
                 </div>
-                <div class="info-item">
+                <div class="flex space-x-2">
                     <strong>Special Attack:</strong>
-                    <span id="special-attack"></span>
+                    <span class="capitalize" id="special-attack"></span>
                 </div>
-                <div class="info-item">
+                <div class="flex space-x-2">
                     <strong>Special Defense:</strong>
-                    <span id="special-defense"></span>
+                    <span class="capitalize" id="special-defense"></span>
                 </div>
-                <div class="info-item">
-                    <strong>Speed:</strong> <span id="speed"></span>
+                <div class="flex space-x-2">
+                    <strong>Speed:</strong> <span class="capitalize" id="speed"></span>
                 </div>
             </div>
         </div>

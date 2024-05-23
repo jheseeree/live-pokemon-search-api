@@ -15,7 +15,8 @@ const pokeSpeed = document.getElementById("speed");
 const errorMessage = document.getElementById("error-message");
 
 //freecodecamp API
-const pokedex = "https://pokeapi-proxy.freecodecamp.rocks/api/pokemon";
+// const pokedex = "https://pokeapi-proxy.freecodecamp.rocks/api/pokemon";
+const pokedex = "https://pokeapi.co/api/v2/pokemon";
 
 const searchPokemon = () => {
     const searchInput = document.getElementById("search-input");
