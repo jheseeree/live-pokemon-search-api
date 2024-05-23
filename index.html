@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pokémon Search API App</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Pokémon Search API App</h1>
+            <p class="creator">By Jobeth Eres</p>
+            <p class="creator">
+                A FINAL PROJECT FOR IPTECH2 - LIVE MINI API PROJECT
+            </p>
+
+            <input
+                id="search-input"
+                required
+                placeholder="Search for a Pokémon" />
+            <button id="search-button">Search</button>
+            <div id="error-message" class="hidden">Pokemon not found</div>
+            <div class="pokemon-info">
+                <img src="" alt="" id="sprite" />
+                <div class="info-item">
+                    <strong>Name:</strong> <span id="pokemon-name"></span>
+                </div>
+                <div class="info-item">
+                    <strong>ID:</strong> <span id="pokemon-id"></span>
+                </div>
+                <div class="info-item">
+                    <strong>Weight:</strong> <span id="weight"></span>
+                </div>
+                <div class="info-item">
+                    <strong>Height:</strong> <span id="height"></span>
+                </div>
+                <div class="info-item">
+                    <strong>Types:</strong> <span id="types"></span>
+                </div>
+                <div class="info-item">
+                    <strong>HP:</strong> <span id="hp"></span>
+                </div>
+                <div class="info-item">
+                    <strong>Attack:</strong> <span id="attack"></span>
+                </div>
+                <div class="info-item">
+                    <strong>Defense:</strong> <span id="defense"></span>
+                </div>
+                <div class="info-item">
+                    <strong>Special Attack:</strong>
+                    <span id="special-attack"></span>
+                </div>
+                <div class="info-item">
+                    <strong>Special Defense:</strong>
+                    <span id="special-defense"></span>
+                </div>
+                <div class="info-item">
+                    <strong>Speed:</strong> <span id="speed"></span>
+                </div>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
