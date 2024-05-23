@@ -21,47 +21,73 @@ const pokedex = "https://pokeapi.co/api/v2/pokemon";
 const searchPokemon = () => {
     const searchInput = document.getElementById("search-input");
 
-    let url = "";
+    if(searchInput.value.toLowerCase() == 'rick') {
+        console.log('Rickrolled!');
 
-    if (!isNaN(parseInt(searchInput.value))) {
-        url = `${pokedex}/${searchInput.value}`;
-    } else {
-        url = `${pokedex}/${searchInput.value.toLowerCase()}`;
-    }
+        let rickWrapper = document.getElementById('_what_is_this');
+        let rick = document.getElementById('rick');
+        let pokemonInfo = document.getElementById('pokemon_info');
 
-    fetch(`${url}`)
-        .then((res) => res.json())
-        .then((data) => {
-            const pokemonTypes = [];
-
-            for (let i = 0; i < data["types"].length; i++) {
-                pokemonTypes.push(
-                    `<span>${data["types"][i]["type"]["name"]}</span>`
-                );
+        function openFullscreen() {
+            if (rick.requestFullscreen) {
+                rick.requestFullscreen();
+            } else if (rick.webkitRequestFullscreen) { /* Safari */
+                rick.webkitRequestFullscreen();
+            } else if (rick.msRequestFullscreen) { /* IE11 */
+                rick.msRequestFullscreen();
             }
+        }
 
-            pokeSprite.src = data["sprites"]["front_default"];
-            console.log(data);
-            pokeName.textContent = data["name"];
-            pokeId.textContent = data["id"];
-            pokeWeight.textContent = data["weight"];
-            pokeHeight.textContent = data["height"];
-            types.innerHTML = pokemonTypes.join(", ");
-            pokeHp.textContent = data["stats"][0]["base_stat"];
-            pokeAttack.textContent = data["stats"][1]["base_stat"];
-            pokeDefense.textContent = data["stats"][2]["base_stat"];
-            pokeSpecialAttack.textContent = data["stats"][3]["base_stat"];
-            pokeSpecialDefense.textContent = data["stats"][4]["base_stat"];
-            pokeSpeed.textContent = data["stats"][5]["base_stat"];
+        pokemonInfo.classList.add('hidden');
+        rickWrapper.classList.remove('hidden');
+        rick.setAttribute('autoplay','autoplay');
+        rick.play();
+        openFullscreen();
 
-            // Hide the error message if the fetch is successful
-            errorMessage.style.display = "none";
-        })
-        .catch((err) => {
-            // Show the error message if the fetch fails
-            errorMessage.style.display = "block";
-            console.error("Error fetching Pokémon data:", err);
-        });
+
+    } else {
+        let url = "";
+
+        if (!isNaN(parseInt(searchInput.value))) {
+            url = `${pokedex}/${searchInput.value}`;
+        } else {
+            url = `${pokedex}/${searchInput.value.toLowerCase()}`;
+        }
+
+        fetch(`${url}`)
+            .then((res) => res.json())
+            .then((data) => {
+                const pokemonTypes = [];
+
+                for (let i = 0; i < data["types"].length; i++) {
+                    pokemonTypes.push(
+                        `<span>${data["types"][i]["type"]["name"]}</span>`
+                    );
+                }
+
+                pokeSprite.src = data["sprites"]["front_default"];
+                console.log(data);
+                pokeName.textContent = data["name"];
+                pokeId.textContent = data["id"];
+                pokeWeight.textContent = data["weight"];
+                pokeHeight.textContent = data["height"];
+                types.innerHTML = pokemonTypes.join(", ");
+                pokeHp.textContent = data["stats"][0]["base_stat"];
+                pokeAttack.textContent = data["stats"][1]["base_stat"];
+                pokeDefense.textContent = data["stats"][2]["base_stat"];
+                pokeSpecialAttack.textContent = data["stats"][3]["base_stat"];
+                pokeSpecialDefense.textContent = data["stats"][4]["base_stat"];
+                pokeSpeed.textContent = data["stats"][5]["base_stat"];
+
+                // Hide the error message if the fetch is successful
+                errorMessage.style.display = "none";
+            })
+            .catch((err) => {
+                // Show the error message if the fetch fails
+                errorMessage.style.display = "block";
+                console.error("Error fetching Pokémon data:", err);
+            });
+    }
 };
 
 searchButton.addEventListener("click", searchPokemon);

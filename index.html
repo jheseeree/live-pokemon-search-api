@@ -42,7 +42,10 @@
                     </button>
                 </div>
                 <div class="w-full bg-white rounded-xl p-5 mt-5">
-                    <div class="pokemon-info">
+                    <div id="_what_is_this" class="hidden">
+                        <video id="rick" src="rickrolled.mp4"></video>
+                    </div>
+                    <div id="pokemon_info" class="pokemon-info">
                         <img class="mx-auto w-40 h-40" src="https://pbs.twimg.com/profile_images/677508993686700035/5hQ59Dm4_400x400.png" alt="" id="sprite" />
                         <div class="flex space-x-2">
                             <strong>Name:</strong>
@@ -90,67 +93,11 @@
                         </div>
                     </div>
                 </div>
+                <small class="block text-purple-500 text-xxs text-center mt-2">
+                    Search Rick
+                </small>
             </div>
         </div>
-
-
-        <div class="hidden max-w-lg border mx-auto">
-            <h1 class="text-3xl font-bold underline">
-                Hello world test!
-            </h1>
-            
-            <h1>Pokémon Search API App</h1>
-            <p class="creator">By Jobeth Eres</p>
-            <p class="creator">
-                A FINAL PROJECT FOR IPTECH2 - LIVE MINI API PROJECT
-            </p>
-
-            <input
-                id="search-input"
-                required
-                placeholder="Search for a Pokémon" />
-            <button id="search-button">Search</button>
-            <div id="error-message" class="hidden">Pokemon not found</div>
-            <div class="pokemon-info">
-                <img src="" alt="" id="sprite" />
-                <div class="flex space-x-2">
-                    <strong>Name:</strong> <span class="capitalize" id="pokemon-name"></span>
-                </div>
-                <div class="flex space-x-2">
-                    <strong>ID:</strong> <span class="capitalize" id="pokemon-id"></span>
-                </div>
-                <div class="flex space-x-2">
-                    <strong>Weight:</strong> <span class="capitalize" id="weight"></span>
-                </div>
-                <div class="flex space-x-2">
-                    <strong>Height:</strong> <span class="capitalize" id="height"></span>
-                </div>
-                <div class="flex space-x-2">
-                    <strong>Types:</strong> <span class="capitalize" id="types"></span>
-                </div>
-                <div class="flex space-x-2">
-                    <strong>HP:</strong> <span class="capitalize" id="hp"></span>
-                </div>
-                <div class="flex space-x-2">
-                    <strong>Attack:</strong> <span class="capitalize" id="attack"></span>
-                </div>
-                <div class="flex space-x-2">
-                    <strong>Defense:</strong> <span class="capitalize" id="defense"></span>
-                </div>
-                <div class="flex space-x-2">
-                    <strong>Special Attack:</strong>
-                    <span class="capitalize" id="special-attack"></span>
-                </div>
-                <div class="flex space-x-2">
-                    <strong>Special Defense:</strong>
-                    <span class="capitalize" id="special-defense"></span>
-                </div>
-                <div class="flex space-x-2">
-                    <strong>Speed:</strong> <span class="capitalize" id="speed"></span>
-                </div>
-            </div>
-        </div>
-
         <script src="script.js"></script>
     </body>
 </html>
